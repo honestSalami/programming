@@ -1,4 +1,34 @@
 
+a tiny language called Z
+https://chrisdone.com/posts/z/
+lisp, markdown
+
+Zmacs
+https://en.wikipedia.org/wiki/Zmacs
+a text editor variant of Emacs
+
+tutorial of Oz
+https://mozart.github.io/mozart-v1/doc-1.4.0/tutorial/
+
+the mozart programming system
+https://mozart.github.io/
+
+clean
+https://clean.cs.ru.nl/Clean
+
+Software engineers handbook/language dictionary/qi
+https://en.wikibooks.org/wiki/Software_Engineers_Handbook/Language_Dictionary/Qi
+another language by mark tarver
+
+shen homepage
+http://www.shenlanguage.org/
+mark tarver's language
+
+mark tarver
+http://www.marktarver.com/
+
+
+
 a critique of abelson and sussman or why calculating is better than scheming
 https://www.reddit.com/r/programming/comments/ujj3/a_critique_of_abelson_and_sussman_or_why/cutzn/
 
@@ -8,17 +38,26 @@ https://lisp-ai.blogspot.com/
 road to lisp
 https://road-to-lisp.blogspot.com/
 
+
 steve losh
 http://stevelosh.com/blog/
 
 learn vimscript the hard way
 http://learnvimscriptthehardway.stevelosh.com/
 
+
 lisp is not an acceptable lisp
 http://steve-yegge.blogspot.com/2006/04/lisp-is-not-acceptable-lisp.html
 
+
 lisping at the jpl (jet propulsion laboratory)
 http://www.flownet.com/gat/jpl-lisp.html
+
+
+the eternal mainframe
+http://www.winestockwebdesign.com/Essays/Eternal_Mainframe.html
+
+
 
 Olin shivers
 http://www.ccs.neu.edu/home/shivers/
@@ -28,13 +67,13 @@ scsh.net
 https://scsh.net/docu/dessous.html
 olin shivers
 
+github page for scsh
+https://github.com/scheme/scsh
+
 the sre regular-expression notation
 http://www.ccs.neu.edu/home/shivers/papers/sre.txt
 olin shivers
 the introduction describes the curse of lisp quite well
-
-the eternal mainframe
-http://www.winestockwebdesign.com/Essays/Eternal_Mainframe.html
 
 technical bibliography
 http://www.ccs.neu.edu/home/shivers/citations.html#sre
@@ -46,5 +85,37 @@ https://en.wikipedia.org/wiki/T_(programming_language)
 olin shivers: history of T
 http://www.paulgraham.com/thist.html
 
+
+
+lisp: good news, bad news, and how to win big
+richard P. gabriel
+https://www.dreamsongs.com/WIB.html
+
+Dreamsongs' essays
+https://www.dreamsongs.com/Essays.html
+
+
+
 why founding a three-person startup with zero revenue is better than working for goldman sachs
 https://blogs.itb.ac.id/djadja/2010/09/15/why-founding-a-three-person-startup-with-zero-revenue-is-better-than-working-for-goldman-sachs-adgrok/
+
+
+
+On Smalltalk
+http://onsmalltalk.com/
+
+pharo
+https://en.wikipedia.org/wiki/Pharo
+a smalltalk environment
+
+
+
+loper os
+http://www.loper-os.org/
+lisp, finite field arithmetic, ada, bitcoin
+you can't get to the moon by piling up chairs
+
+
+
+The Tunes os/language project
+http://tunes.org/
