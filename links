@@ -132,3 +132,54 @@ https://twobithistory.org/2018/10/14/lisp.html
 Eternal Flame
 https://www.youtube.com/watch?v=u-7qFAuFGao
 a song on how God used lisp to make the world
+
+
+tangible functional programming
+conal Elliott
+http://conal.net/papers/Eros/
+graphically represent the values of functions
+
+conal elliot webpage
+http://conal.net/
+automatic differentiation
+parallel functional programming
+haskell
+tangible functional programming
+
+learnable programming
+http://worrydream.com/LearnableProgramming/
+designing a programming system for understanding programs
+bret victor
+programming is a way of thinking, not a rote skill
+people understand what they can see
+how do we get people to understand programming?
+we change programming. We turn it into something that's understandable by people
+
+lost garden
+http://www.lostgarden.com
+art design and gaming
+cool blog
+
+lunar lost garden
+http://lunar.lostgarden.com/
+apparently, a hidden blog inside lost garden
+
+
+
+
+wikilon introduction
+https://awelonblue.wordpress.com/2014/09/29/introducing-wikilon/
+a wiki inspired software platform and developmen environment
+a wiki based IDE and live software platform
+you can have a transactional view not only of the codebase, 
+but also of the many web apps hosting it.
+so, users can edit a codebase, see a live impact on their web applications,
+and preserve this as a personal session view until they wish to share the 
+changes by commiting them.
+
+wikilon on github
+https://github.com/dmbarbour/wikilon
+
+Awelon programming language
+https://github.com/dmbarbour/wikilon/blob/master/docs/AwelonLang.md
+related to the wikilon
