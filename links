@@ -134,6 +134,13 @@ https://www.youtube.com/watch?v=u-7qFAuFGao
 a song on how God used lisp to make the world
 
 
+akkartik's mission
+http://akkartik.name/about
+to help people understand code faster, to make that nicer
+"all software should reward curiosity"
+"focus on helping the outsider comprehend a project"
+
+
 tangible functional programming
 conal Elliott
 http://conal.net/papers/Eros/
@@ -183,3 +190,34 @@ https://github.com/dmbarbour/wikilon
 Awelon programming language
 https://github.com/dmbarbour/wikilon/blob/master/docs/AwelonLang.md
 related to the wikilon
+
+
+
+gitbook
+https://www.gitbook.com/
+documentation for you, your team, your users
+
+programming with mydef
+https://huizhou.gitbooks.io/programming-with-mydef/
+a balance between being precize (doing exactly the thing we tell them)
+and being able to guess what we want.
+between doing things consistently and guessing what we want them to do.
+mydef is the upper layer that can guess, and whatever language you are using
+is the lower layer, the accurate one
+
+write a python calculator imperatively
+http://hz2.org/blog/python_calc.html
+writing parsers in imperative programming, like a natural language
+mydef and python
+
+
+
+leo (text editor)
+https://en.wikipedia.org/wiki/Leo_(text_editor)
+open source text editor/outliner that features clones
+
+leo's home page
+http://leoeditor.com/
+personal information manager (PIM) and IDE
+python developed, with literate programming
+leon, lion
