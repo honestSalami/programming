@@ -391,3 +391,12 @@ the 4 division functions:
     floor
     ceiling
     truncate
+
+understanding common lisp aref behavior
+https://stackoverflow.com/questions/13959795/understanding-common-lisp-aref-behavior
+so, setf knows magically the place form of its array argument at compile time
+it is a macro
+so, if you make a wrapper around aref, setf cannot inspect the array, because
+that knowledge must be given explicitely, with a function companion.
+you can make a function that gives that knowledge to setf...
+but, really, setf expansion is a super hairy topic
