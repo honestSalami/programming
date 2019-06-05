@@ -139,6 +139,28 @@ http://akkartik.name/about
 to help people understand code faster, to make that nicer
 "all software should reward curiosity"
 "focus on helping the outsider comprehend a project"
+"a new language or tool will have at best a short term effect
+unless we're able to keep the big picture of our codebase comprehensible over
+time as members join and leave it"
+causes of creeping accidental complexity:
+    backwards compatibility
+    churn of personnel
+    vestigial features
+solutions:
+    be friendly to outsiders
+    be rewrite friendly
+    lots of test, at every level of the stack
+    white box testing. Testing everything affected by the function, not just
+        its return value
+
+Mu, a tiny new machine
+https://github.com/akkartik/mu
+an interesting experiment in literate programming
+
+literate programming: knuth is doing it wrong
+http://akkartik.name/post/literate-programming
+organization of the code is more important than typesetting
+
 
 
 tangible functional programming
@@ -212,6 +234,11 @@ mydef and python
 
 
 
+axiom (computer algebra system)
+https://en.wikipedia.org/wiki/Axiom_(computer_algebra_system)
+free, general purpose, and literate programming!
+
+
 leo (text editor)
 https://en.wikipedia.org/wiki/Leo_(text_editor)
 open source text editor/outliner that features clones
@@ -221,3 +248,21 @@ http://leoeditor.com/
 personal information manager (PIM) and IDE
 python developed, with literate programming
 leon, lion
+
+Separation of mechanism and policy
+https://en.wikipedia.org/wiki/Separation_of_mechanism_and_policy
+a design principle in computer science.
+the way to do it does not limit what you can do.
+like the X windowing system does not tell you how windows should look,
+only how you can draw pixels on the screen
+
+Separation of concerns
+https://en.wikipedia.org/wiki/Separation_of_concerns
+each part of the program deals with one concern
+
+the Scheme underground
+https://github.com/scheme
+a repository of some interesting scheme things, like:
+a regular expression engine based on SRE notation
+scsh
+soosy, a Object Oriented system
