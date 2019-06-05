@@ -373,6 +373,7 @@ http://www.sicpdistilled.com/
 
 
 
+# common lisp questions
 why is elt not as common as car, cdr, first, rest?
 https://stackoverflow.com/questions/19968900/why-is-elt-not-as-common-as-car-cdr-first-rest
 answers:
@@ -382,3 +383,11 @@ answers:
     elt is random access, list are not good for random access
     3
     you can nest cadadr. you cannot nest elt, which works only on the toplevel
+
+integer division in common lisp?
+https://stackoverflow.com/questions/2076862/integer-division-in-common-lisp
+the 4 division functions:
+    /
+    floor
+    ceiling
+    truncate
