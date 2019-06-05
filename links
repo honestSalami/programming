@@ -266,3 +266,119 @@ a repository of some interesting scheme things, like:
 a regular expression engine based on SRE notation
 scsh
 soosy, a Object Oriented system
+
+
+
+cl-6502
+a 6502 emulator in lisp
+https://github.com/kingcons/cl-6502
+emulating assembly language in common lisp
+a readable CPU emulator
+
+compiler basics (1): lisp to assembly
+http://notes.eatonphil.com/compiler-basics-lisp-to-assembly.html
+a compiler in java, compiling lisp to assembly
+
+compiler basecs: lisp to assembly
+https://news.ycombinator.com/item?id=18530260
+the hacker news site for the compiler basics (1): lisp to assembly
+
+ulisp
+a compiler for a lisp-like language targeting llvm ir, x86 assembly
+https://github.com/eatonphil/ulisp
+the github page for the project above
+
+Lets build a compiler, by jack crenshaw
+https://compilers.iecc.com/crenshaw/
+a fifteen 15 part series, non technical introduction to compiler construction
+
+game oriented assembly lisp
+https://en.wikipedia.org/wiki/Game_Oriented_Assembly_Lisp
+the naughty dog lisp language.
+used for the play station 2, jak and daxter, and the last of us.
+
+lisp sucks in assembly
+http://wiki.c2.com/?LispSucksInAssembly
+a kitchen sink of confusing opinions about lisp...
+
+how lisp implemented in assembly language
+https://stackoverflow.com/questions/5865868/how-lisp-implemented-in-assembly-language#5871236
+a list of resources on understanding lisp, and implementing it
+
+bibliography of scheme related research
+https://web.archive.org/web/20100824091403/http://library.readscheme.org/
+the original lambda papers and more!!!
+guy steele gerald sussman
+
+indulge yourself
+https://news.ycombinator.com/item?id=835020
+the hacker news page where the bibliography of scheme was posted
+some nice recommendations to reading them
+
+
+
+
+the origin of CAR and CDR in lisp
+http://www.iwriteiam.nl/HaCAR_CDR.html
+its the 
+    Contents of the Address Register and
+    Contents of the Decrement Register.
+also, the PDP10 and some assemnly talk
+
+the origin of car and cdr in lisp (2005)
+hacker news
+https://news.ycombinator.com/item?id=16008239
+the comments are interesting
+
+successful lisp:
+how to understand and use common lisp
+david B. Lamkins
+http://dept-info.labri.u-bordeaux.fr/~strandh/Teaching/MTP/Common/David-Lamkins/cover.html
+kinda old, but probably good
+
+
+
+
+the little javascripter
+https://www.crockford.com/little.html
+following "the little schemer", teaches you about recursion in javascript
+
+
+
+structure and interpretation of computer programs
+the wizard book
+http://sarabander.github.io/sicp/
+beautiful version
+you make a scheme compiler by the end!
+
+structure and interpretation of computer programs
+https://xuanji.appspot.com/isicp/
+interactive version!
+
+easing into SICP
+https://news.ycombinator.com/item?id=2115756
+some recommendations for doing SICP at a nice pace, without stress
+
+wizard book
+https://mitpress.mit.edu/sites/default/files/sicp/index.html
+the mit page for sicp
+
+why sicp matters
+https://people.eecs.berkeley.edu/~bh/sicp.html
+brian harvey on an opinion
+
+sicp distilled
+an idiosyncratic tour of sicp in clojure
+http://www.sicpdistilled.com/
+
+
+
+why is elt not as common as car, cdr, first, rest?
+https://stackoverflow.com/questions/19968900/why-is-elt-not-as-common-as-car-cdr-first-rest
+answers:
+    1
+    too generic, you got car and cdr and c(a|d)+r for list.
+    2
+    elt is random access, list are not good for random access
+    3
+    you can nest cadadr. you cannot nest elt, which works only on the toplevel
