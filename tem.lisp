@@ -346,8 +346,10 @@ Take one down, pass it around
 ; but its harder to understand the arguments
 (defun order-preserving-union (La Le)
   (if Le
+    ; I'm not sure if moving Le is better here or in the recurse
     (let ((E (car Le)) (Le (cdr Le)))
       (order-preserving-union
+        ; replace La, with more of the same or an extension
         (if (member E La)
           La
           (append La (list E)) )
@@ -396,3 +398,25 @@ Take one down, pass it around
           Num
           (setf i (+ i 1)) ) )
       Lst ) ) )
+
+; 4.1 searching a sorted list
+
+(defun bin-search (obj vec)
+  (let ((len (length vec)))
+    (and (not (zerop len))
+         (finder obj vec 0 (- len 1)) ) ) )
+
+(defun finder (obj vec start end)
+  (let ((range (- end start)))
+    (if (zerop range)
+      (if (eql obj (aref vec start))
+        obj
+        nil)
+      (let ((mid (+ start (round (/ range 2)))))
+        (let ((obj2 (aref vec mid)))
+          (if (< obj obj2)
+            (finder obj vec start (- mid 1))
+            (if (> obj obj2)
+              (finder obj vec (+ mid 1) end)
+              obj ) ) ) )  ) ) )
+

@@ -1,0 +1,100 @@
+
+chaper 4
+Specialized data structures:
+    arrays,
+    structures, and
+    hash tables.
+Also instances, but we'll see them in the OO chapter.
+
+less flexible, but faster and smaller in space
+
+# 4.1 Arrays
+this is mostly a bunch of definitions:
+
+make-array 
+    a list of dimensions as the first arguments
+    make a list dimensional array
+at most seven dimensions,
+each dimension can have at most 1023 elements.
+
+:initial-argument
+    the whole array will be initialized for that value
+it is undefined accessing an uninitialized element of an array
+
+aref
+    retrieve an array element
+
+replace an element of the array:
+    setf with aref
+    (setf (aref tem 0 0) 1)
+
+#nA syntax
+    #2A -> 2 dimensional array
+    #5A -> 5 dimensional array
+
+*print-array*
+    if t
+        print arrays in #na syntax
+
+vector
+    a 1D array
+    (vector 1 2 "c" '(d))
+
+svref
+    access a simple vector,
+    faster than aref
+
+simple array:
+    not adjustable
+        size cannot be changed in runtime (2)
+    not displaceable
+        cannto make a subset that shares the same memory as the original (1) (3)
+    no fill-pointer
+
+
+references:
+    1
+    displaced multidimensional array in common lisp
+    https://stackoverflow.com/questions/40810796/displaced-multidimensional-arrays-in-common-lisp
+    2
+    little bits of lisp - Adjustable array basics
+    https://www.youtube.com/watch?v=9P2uYAd8bXs
+    3
+    quick ref common lisp (displaced arrays for fun and profit)
+    https://quickref.common-lisp.net/array-operations.html
+
+
+vs : simple vector
+
+a simple array
+    not adjustable
+    not displaced
+    no fill-pointer
+
+## little bits of lisp
+
+# little bits of lisp - adjustable array basics
+adjustable array
+an array of size 0 has no room for anything to go in
+
+adjust-array returns an array
+it might be identical, it might not, that depends on the implementation
+the specification decided it would not define that, and we must roll with it.
+
+clisp does modify the original array, not just returning a newly modified array
+do, affects the identity, not just an equal copy
+
+
+# little bits of lisp - Arrays with fill pointers
+https://www.youtube.com/watch?v=tavR7d8xKrk
+
+fill pointer is the active area of an array
+it can be moved.
+
+the fill-pointer points to all the active elements,
+the ones before the fill-pointer
+
+just because you move the fill-pointer back does not mean that the array is not still
+holding the reference to the object.
+If you were expecting it to be garbage collected, you need to clear that slot out.
+So, you might wanna put a NIL there, and then move back the fill-pointer.

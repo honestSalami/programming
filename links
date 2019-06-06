@@ -400,3 +400,16 @@ so, if you make a wrapper around aref, setf cannot inspect the array, because
 that knowledge must be given explicitely, with a function companion.
 you can make a function that gives that knowledge to setf...
 but, really, setf expansion is a super hairy topic
+
+
+
+let vs let* in common lisp
+https://stackoverflow.com/questions/554949/let-versus-let-in-common-lisp
+if let is just the parallel versin of let*'s serial processing,
+why would we ever want let?
+    the parallel thing is easier to understand
+    it signals to the reader that nothing tricky is going on
+    its more fundamental than let*
+but the answers are divided, and none of the let and let* differentiation
+arguments convince me
+might be better to have just let*, instead of let.
