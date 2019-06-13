@@ -5,12 +5,14 @@
 (defvar +side+ 4)
 (defvar +max+ (1- (* +side+ +side+))) ; 15
 
+
 ; make a matrix of dimensions +side+ by +side+ (4 by 4 in this case)
 ; and fill it with numbers,
 ; starting from 1 and ending in the biggest number that fits
 ; in this case, 1 - 15, and ending in 0
 ; this is the structure:
 ; ((1 2 3 4) (5 6 7 8) (9 10 11 12) (13 14 15 0))
+
 ; seriously, comment your code!
 ; its so much easier to understand this data structure,
 ; than to deduce the entire thing from code!

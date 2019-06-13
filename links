@@ -413,3 +413,42 @@ why would we ever want let?
 but the answers are divided, and none of the let and let* differentiation
 arguments convince me
 might be better to have just let*, instead of let.
+
+
+
+
+Ron Garret's Home Page
+http://www.flownet.com/gat/
+common lisp packages
+lambda calculus for fun and factorials
+quantum mysteries disentangled
+lisping at JPL
+
+
+Common lisp . net
+https://common-lisp.net/
+the programmable programming language
+package index and community and project hosting
+
+
+artima weblogs
+https://www.artima.com/weblogs/
+scala blogs, jekyll, markdown, history
+
+are dynamic languages going to replace static languages?
+https://www.artima.com/weblogs/viewpost.jsp?thread=4639
+the safety of static typing vs the flexibility of dynamic languages.
+Robert C. Martin, uncle bob
+
+how to exit the package that I'm just using in common lisp
+https://stackoverflow.com/questions/8591402/how-to-exit-the-package-that-im-just-using-in-common-lisp
+(cl:in-package :cl-user)
+
+
+common lisp - how to start a new project
+https://www.youtube.com/watch?v=SPgjgybGb5o
+how to start a project:
+    throw quickproject at it
+        to get a project template
+    initialize git
+    push it up to github
