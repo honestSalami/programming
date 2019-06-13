@@ -1,22 +1,25 @@
 
 (defun our-member (obj lst)
-  (if (null lst)
+  (if (null lst) ; base case
     nil
-    (if (eql (car lst) obj)
+    (if (eql obj (car lst)) ; is member
       lst
-      (our-member obj (cdr lst)) ) ) )
+      (our-member obj (cdr lst)) ) ) ) ; recurse
 
 (defun askem (string)
   (format t "~A" string)
+  ;; does not work if you insert a space
   (read) )
 
 ; recursive loop for number asking
 (defun ask-number ()
   (format t "Please enter a number. ")
+  ;; make handler "val"
   (let ((val (read)))
     (if (numberp val)
       val
       (ask-number) ) ) )
+; validation with recursion for insistence
     
 (defun show-squares (start end)
   (do ( (i start (+ i 1)) )
@@ -403,20 +406,122 @@ Take one down, pass it around
 
 (defun bin-search (obj vec)
   (let ((len (length vec)))
+    ; validate that the vector has elements
     (and (not (zerop len))
+         ; initialize finder
+         ; the return value of length is too long for 0-starting indexing
          (finder obj vec 0 (- len 1)) ) ) )
 
+; this method has a lookup range, which gets reduced each iteration until you run into
+; the object in the middle of it, or the range is 0.
+; its allas are numbers, the indexes of the elements of the vector,
+; instead of the vector itself
+; it is tail recursive, but that is just disguised iteration
+
+; uppercase are the values of start, lowercase are the values of end
+; A             B       C    d   a
+; should be the other way around:
+; a             b       c    D   A
+; a    c   D    B                A
 (defun finder (obj vec start end)
+  (format t "~A~%" (subseq vec start (+ end 1)))
+  ; how many elements will be checked
   (let ((range (- end start)))
+    ; there are no elements to check
     (if (zerop range)
+      ; if we found the obj, in the position we are in right now
       (if (eql obj (aref vec start))
+        ; return the object
         obj
+        ; return nil, the object is not inside the vector
         nil)
+      ; if there are more than 1 number to check,
+      ; find the middle of the two numbers
       (let ((mid (+ start (round (/ range 2)))))
+        ; the object in the position between the start and end
         (let ((obj2 (aref vec mid)))
+          ; if obj2 is bigger than obj, that means that obj is before obj2, so you should
+          ; look before obj2
           (if (< obj obj2)
             (finder obj vec start (- mid 1))
+            ; if obj is larger than obj2, then its after obj2, and you should check after it
             (if (> obj obj2)
               (finder obj vec (+ mid 1) end)
+              ; if its neither smaller nor bigger, its equal, so its the object we were
+              ; looking for. Return it.
               obj ) ) ) )  ) ) )
 
+; its recursive, but the change happens in the range of elements that you'll 
+; check, not in the data structure.
+; ok, I think the thing that changes between iterations should have a special
+; name... 
+; allagi is change in greek, that might work
+; allai singular, allas plural
+; the allas are start and end
+; static and dynamic might also work... but I don't want to keep reusing the
+; same words with slightly different meanings over and over.
+; I want many words, with very precise meanings.
+
+; define alla(i|s)? : the variables (or data structures) that change each cycle
+; of the iteration
+
+(setq 
+  *a* (vector 1 2 3 4 5) 
+  *b* (aref *a* 2) )
+
+; this line changes only the value of *b*, not the field in *a*
+(setf *b* 10)
+; this one does change *a* destructively
+(setf (aref *a* 2) 10)
+
+; and I find that annoying! depending on the situation,
+; aref returns a value that can be stored, or a pointer that setf can modify
+; its inconsistent
+
+(defun mirror? (s)
+  (let ((len (length s)))
+    ;; validate that it can be mirrored, by having an even length
+    ;; that is, "abba" is mirrored, but "aba" is not.
+    (and (evenp len)
+         ;; each step... ???
+         ;; forward is static, but back is dynamic?
+         ;; that is, back is allai and forward is not?
+         (do ((forward 0 (+ forward 1))
+              ; back reduces by 1 each turn
+              (back (- len 1) (- back 1)) )
+
+           ;; if the forward is greater than the back,
+           ;; or the mirror elements are not equal
+           ;; stop
+           ((or (> forward back)
+                ;; the mirror letters are not equal
+                (not (eql (elt s forward)
+                          (elt s back) ) ) )
+            ;; and return the value of whether forward is greater than back...
+            (> forward back) ) )  ) ) )
+
+; if forward is greater than back, then the word is a mirror
+; if forward is smaller than back, then the comparison stopped before the word ended,
+; so its not a mirror.
+; forward and back meet at the middle, so you only end up checking half the list
+; well, half + 1
+
+; this version would be very inefficient with lists, because you would have to travel
+; the fist half of the list every time you wanted to retrieve the value of back.
+; but its ok with vectors, because of the random access. You don't need to traverse to
+; get to the end.
+
+;; here, we can change arbitrary pointers in the string, by returning a field.
+;; feels useful. Not sure if the arcane expansion of setf is worth it, though
+;(let
+;  ((a "hello world"))
+;  (setf (subseq a 3 5) "LONG")
+;  a )
+
+
+(defun second-word (str)
+  ;; get the position of the first space
+  (let ((p1 (+ (position #\  str) 1))) ; check for a space starting from the first place
+    ;; make a subsequence, from the position of the first space to the position of the
+    ;; second space. Or, the next space following the first one
+    (subseq str p1 (position #\  str :start p1)) ) )

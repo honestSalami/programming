@@ -71,6 +71,44 @@ a simple array
     not displaced
     no fill-pointer
 
+# 4.4 sequences
+
+:key
+    identity
+        a function to apply to each element
+:test
+    eql
+        the test function for comparison
+:from-end
+    nil
+        if true, work backwards
+:start
+    0
+        position at which to start
+:end
+    nil
+        position, if any, at which to stop
+
+Guidelines for tabular lists:
+    put the longest, most variable in length element last
+    single words come first
+
+:key
+    a function to apply to each element
+        identity
+:test
+    the test function for comparison
+        eql
+:from-end
+    if true, work backwards
+        nil
+:start
+    position at which to start
+        0
+:end
+    position, if any, at which to stop
+        nil
+
 ## little bits of lisp
 
 # little bits of lisp - adjustable array basics
