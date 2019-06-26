@@ -412,6 +412,22 @@ Take one down, pass it around
          ; the return value of length is too long for 0-starting indexing
          (finder obj vec 0 (- len 1)) ) ) )
 
+; would that (- len 1) be an argument against exclusive counting?
+; because, since you are using recursion, and functions that are unaware of your counting
+; style, then you have to change the return value of other functions to suit your need.
+
+; that is, since finder needs to go to the index of the last element, but 
+; len returns the length of the list, which is 1 greater than the index of the element
+; then you have to modify that len to get the index.
+; if len returned the index, no problem would arise...
+; it appears that the best counting inclusion strategy depends on the context, on what you
+; are doing.
+; does recursion go better with 1-starting end-inclusive counting?
+; does iteration go better with 0-starting end-exclusive counting?
+; one of the arguments by dijkstra was that the for could be easily composed
+
+; --
+
 ; this method has a lookup range, which gets reduced each iteration until you run into
 ; the object in the middle of it, or the range is 0.
 ; its allas are numbers, the indexes of the elements of the vector,
@@ -518,6 +534,27 @@ Take one down, pass it around
 ;  (setf (subseq a 3 5) "LONG")
 ;  a )
 
+(defun mirror? (s)
+  ; handle the length
+  (let ((len (length s)))
+    ; its mirrorable, by being of even length
+    (and (evenp len)
+         ; with two cursors, starting at the beggining and end,
+         ; and moving forward and backward
+         (do ((forward 0 (+ forward 1))
+              (back (- len 1) (- back 1)) )
+
+           ; if forward is greater than back
+           ((or (> forward back)
+                ; or the element in forward is not equal to
+                ; the corresponding element in back
+                (not (eql (elt s forward)
+                          (elt s back) ) ) )
+                ; then its not a mirror
+            ; but if it is, then its a mirror
+            (> forward back) ) )  ) ) )
+
+
 
 (defun second-word (str)
   ;; get the position of the first space
@@ -525,3 +562,560 @@ Take one down, pass it around
     ;; make a subsequence, from the position of the first space to the position of the
     ;; second space. Or, the next space following the first one
     (subseq str p1 (position #\  str :start p1)) ) )
+
+
+; parsing dates
+
+; find what each line does literally
+(defun tokens (str test start)
+  ; find the position of the first element in str 
+  ; satisfying the function test, 
+  ; counting from the starting position start
+  (let ((p1 (position-if test str :start start)))
+    ; if there is an element that passes test,
+    (if p1
+      ; find the first element that does not pass the test in str,
+      ; starting at position start
+      (let ((p2 (position-if #'(lambda (c)
+                                 (not (funcall test c)) )
+                             str :start p1 ) ) )
+        ; save recursively the satisfying part between p1 and p2, and
+        (cons (subseq str p1 p2)
+              ; if there is a rest of the string, then
+              (if p2
+                ; continue parsing from the end of the first token, the first substring
+                (tokens str test p2)
+                ; if not, just make all the deferred operations into a list
+                nil ) ) )
+      ; if there is no starting token, stop operations
+      nil ) ) )
+
+; there are two stops: if the token does not end, or if there are no tokens left
+; save up the token, by 
+    ; spliting the string in 
+        ; the start and 
+        ; end of the token, and 
+    ; searching for the next token.
+
+; find what each line does conceptually
+(defun tokens (str test start)
+  ; find the start of the token
+  (let ((p1 (position-if test str :start start)))
+    (if p1
+      ; find the end of the token
+      (let ((p2 (position-if #'(lambda (c)
+                                 (not (funcall test c)) )
+                             str :start p1 ) ) )
+        ; save the token
+        (cons (subseq str p1 p2)
+              (if p2
+                ; find the next token
+                (tokens str test p2)
+                ; stop if the token does not end
+                nil ) ) )
+      ; stop if there are no more token starts
+      nil ) ) )
+
+(defun constituent (c)
+  ; c is both a graphic char and not whitespace
+  (and (graphic-char-p c)
+       (not (char= c #\  )) ) )
+; graphic chars are characters we can see
+
+(defun parse-date (str)
+  ; return a list representing the numerical values of the day, month, year
+  ; split the date into tokens, into individual words separated by whitespace
+  (let ((toks (tokens str #'constituent 0)))
+    ; the first word is the day
+    (list (parse-integer    (first toks))
+          ; the second word is the month,
+          ; parse it with a special function, that maps month name to month num
+          (parse-month      (second toks))
+          ; the third word is the year
+          (parse-integer    (third toks)) ) ) )
+
+; it does not validate that the inputted month exists,
+; or its known
+
+;(defconstant month-names
+;             #("jan" "feb" "mar" "apr" "may" "jun"
+;               "jul" "aug" "sep" "oct" "nov" "dec" ) )
+
+(defun parse-month (str)
+  ; find the positon of str in month names
+  (let ((p (position str month-names
+                     :test #'string-equal ) ) )
+    ; if there is a position, 
+    (if p
+      ; return that position + 1,
+      ; because months start from 1, but indexes start from 0
+      (+ p 1)
+      ; if not, then that month is not defined, so return nil, that is false.
+      nil ) ) )
+; its curious where Graham does the processing.
+; he finds the position in the let,
+; and then conditionally returns it
+
+; I would have had finding the position and returning it combined into one.
+
+; the picolisp code would be (de month (Month) (index Month *Month-names))
+; why is it so much simpler?
+; One: the month position is not the same as the month number.
+; they differ by one, so you have to add it.
+; but, position returns nil if the month is not there, and 1 + Nil is an error,
+; so, you need to check if the month is in there, and then you have to conditionally add a 1.
+; if its not, you need to return nil. In picolisp, the second argument of if defaults to nil.
+; if picolisp indexing started at 0, this is the code:
+; (de parse-month (Month) (if (index Month *Month-names) (+ @ 1)))
+; still simpler... because of the implicit assignment to @ as the control variable...
+
+    ; implicit assignment to default variable @.
+    ; starting from 1 instead of 0
+    ; default return arguments
+    ; those are the innovatins of picolisp, for this problem
+
+
+(defun my-read-integer (str)
+  ; if every character is a digit
+  ; so validate the string
+  (if (every #'digit-char-p str)
+    ; start the accumulator
+    (let ((accum 0))
+      ; turn the string into a number, one digit at a time.
+      ; from the highest order to the lowest order
+      (dotimes (pos (length str))
+        (setf accum (+ (* accum 10)
+                       (digit-char-p (char str pos)) ) ) )
+      ; return the integer.
+      accum )
+    nil ) )
+; the function cannot be named read-integer, because it comes from a package already loaded,
+; and that package is locked, meaning that functions from that package cannot be renamed.
+; picolisp does not lock packages. I can redefine whatever I want. Though its easy to not do
+; it, I can check if the variable already has a value associated with it in the repl.
+; and there are some other things... I  think abu uses some functions to ensure that variables
+; are not globally redefined, only locally redefined.
+
+(defstruct polemic
+  (type (progn
+          (format t "what kind of polemic was it? ")
+          (read) ) )
+  (effect nil) )
+
+(defstruct (point (:conc-name p)
+                  (:print-function print-point) )
+  (x 0)
+  (y 0) )
+
+(defun print-point (p stream depth)
+  (format stream "#<~a, ~a>" (px p) (py p)) )
+
+; structures, they have names and attributes. Each has their own type, and you can 
+; access their elements by name
+; defining a structure makes some structure acces and modification and creation functions
+; automatically, like 'make-struct, struct-p, copy-struct, struct-element
+; a little exaple of programs writing programs
+; each struct has a default representation, which you can define by the function print-struct
+; I'm not sure how it gets associated with the point
+
+
+; make a structure node, that is printed as the root of the node
+(defstruct (node (:print-function 
+                   (lambda (n s d)
+                     (format s "#<~a>" (node-elt n)) ) ) )
+  ; it has 3 elements, elt (the root of the node), l (the left element), and r (the right elt)
+  ; the leafs default to nil
+  elt (l nil) (r nil) )
+
+(defun bst-insert (obj bst <)
+  ; if the tree is null, make it a one node tree
+  (if (null bst)
+    (make-node :elt obj)
+    ; if the tree does exist, insert the element
+    ; assign the root of the node
+    (let ((elt (node-elt bst)))
+      ; if the element is already in the tree
+      (if (eql obj  elt)
+        ; dont insert anything, and return the tree itself
+        bst
+        ; if the object is greater than the elemnt
+        (if (funcall < obj elt)
+          ; insert it to the left, and make the right of the object the right of the root
+          ; make a pointer to the rest of the tree on the right of the object?
+          (make-node
+            :elt    elt
+            :l      (bst-insert obj (node-l bst) <)
+            :r      (node-r bst) )
+          ; insert the object on the right, make the rest of the tree to the left
+          (make-node
+            :elt    elt
+            :r      (bst-insert obj (node-r bst) <)
+            :l      (node-l bst) ) ) ) ) ) )
+
+; I'm not sure that the (node-l bst) line does... is it about copying the rest
+; of the tree as the right of the object? that seems strange and wasteful,
+; unless you are copying the reference, and all that's left is a pointer to the
+; rest of the tree... but it still seems like it would make the tree super long
+; without need.
+
+; remake the binary tree, with the root as the root, obj either left or right,
+; and the rest of the tree left or right, depending on the obj
+(defun bst-insert (obj bst <)
+  ; make the tree if it does not exist
+  (if (null bst)
+    (make-node :elt obj)
+    ; make elt handler
+    (let ((elt (node-elt bst)))
+      ; if the object is already in the tree
+      (if (eql obj  elt)
+        bst
+        ; make a new tree! with the root as elt,
+        ; the left as obj, and the rest to the right, where it was before
+        (if (funcall < obj elt)
+          (make-node
+            :elt    elt
+            :l      (bst-insert obj (node-l bst) <)
+            :r      (node-r bst) )
+          ; same as before, but reversed
+          (make-node
+            :elt    elt
+            :r      (bst-insert obj (node-r bst) <)
+            :l      (node-l bst) ) ) ) ) ) )
+
+
+
+; search for an element in the tree,
+; return the branch with that element as its root
+(defun bst-find (obj bst <)
+  ; if the tree is null
+  ; there is nothing to find
+  (if (null bst)
+    nil
+    ; handle the root
+    (let ((elt (node-elt bst)))
+      ; if the root is the goal, return the tree from there
+      (if (eql obj elt)
+        bst
+        ; if the object is smaller than the root
+        (if (funcall < obj elt)
+          ; search to the left, where all the smaller are
+          (bst-find obj (node-l bst) <)
+          ; if the obj is greater than the root, search to the right
+          (bst-find obj (node-r bst) <) ) ) ) ) )
+
+; go down the tree, to the lowest, leftest node
+(defun bst-min (bst)
+  ; the tree exists
+  (and bst
+       ; there are either more nodes to the left,
+       ; so there are yet smaller nodes,
+       ; or you've reached the end, so this leaf is the smallest node
+       (or (bst-min (node-l bst)) bst) ) )
+
+; search for the biggest node
+(defun bst-max (bst)
+  ; the tree exists
+  (and bst
+       ; there are more nodes to the right, or this is the biggest node
+       (or (bst-max (node-r bst)) bst) ) )
+
+; the annoying thing about this representation, like most structs and nodes, is that the
+; structure of the tree is hidden inside the netword of nodes, and seeing the structure
+; is a pain in the ass. If it were just a list, seeing the structure would be simply printing
+; the list.
+
+
+
+; search for an element in a list
+; return the rest of the list
+(defun our-member (obj lst)
+  (if (null lst) ; base case
+    nil
+    (if (eql obj (car lst)) ; is member
+      lst
+      (our-member obj (cdr lst)) ) ) ) ; recurse
+
+; search for an element in the tree,
+; return the branch with that element as its root
+(defun bst-find (obj bst <)
+  (if (null bst)
+    nil
+    (let ((elt (node-elt bst)))
+      (if (eql obj elt)
+        bst
+        (if (funcall < obj elt)
+          (bst-find obj (node-l bst) <)
+          (bst-find obj (node-r bst) <) ) ) ) ) )
+
+; returning the entire branch lets us distinguish between no match (NIL),
+; and finding the branch with root NIL ( #<NIL> )
+
+; remove an element of the binary search tree,
+; if its the root, percolate, if not search to the left, xor to the left
+(defun bst-remove (obj bst <)
+  ; if the bst is not, return nil
+  ; that is, if the object is not in the tree, you cannot remove it
+  (if (null bst)
+    nil
+    ; handle the root
+    (let ((elt (node-elt bst)))
+      ; if the root is the object to remove, run percolate
+      (if (eql obj elt)
+        (percolate bst)
+        ; if not, search the tree by remaking it,
+        (if (funcall < obj elt)
+          ; search the left
+          (make-node
+            :elt elt
+            :l (bst-remove obj (node-l bst) <)
+            :r (node-r bst) )
+          ; search the right
+          (make-node
+            :elt elt
+            :r (bst-remove obj (node-r bst) <)
+            :l (node-l bst) ) ) ) ) ) )
+
+; move up roots to remake the tree, from either the left or the right
+(defun percolate (bst)
+  ; if the left is empty
+  (cond ((null (node-l bst))
+         ;and the right is empty
+         (if (null (node-r bst))
+           ; return nil, why?
+           nil
+           ; but if there IS to the right, right percolate the tree
+           (rperc bst) ) )
+        ; if right is empty, left percolate the tree
+        ((null (node-r bst)) (lperc bst))
+        ; if neither right or left is null 
+        ; randomly left or right percolate the tree
+        (t (if (zerop (random 2))
+             (lperc bst)
+             (rperc bst) ) ) ) )
+
+
+; remake the bst
+(defun rperc (bst)
+  ; make the right root the new root
+  (make-node :elt (node-elt (node-r bst))
+             ; make the left the left of the tree
+             :l (node-l bst)
+             ; percolate the rest of the right,
+             ; that is, move up nodes from left or right to root,
+             ; and reorganize the nodes below it
+             :r (percolate (node-r bst)) ) )
+
+; the same as rperc, but reorganizing the left
+(defun lperc (bst)
+  (make-node :elt (node-elt (node-r bst))
+             :l (percolate (node-r bst))
+             :r (node-l bst) ) )
+
+; double recursion! percolate calls rperc and lperc, and each of those call percolate!
+; in this case, they COULD be one function, but combining those concerns would be too
+; confusing.
+
+; percolate is just flow control, who should you promote up or down.
+; the real function is done in rperc and lperc. But then, you need to reorganize the branches
+; inside the left and right, so you call the control flow function percolate.
+
+  
+
+; make a node struct, representing a binary tree, with these elements:
+; root : elt, l : left tree, r : right tree
+; you represent it like so: #<_elt_>
+(defstruct (node (:print-function 
+                   (lambda (n s d)
+                     (format s "#<~a>" (node-elt n)) ) ) )
+  elt (l nil) (r nil) )
+
+; insert an obj in a balanced Binary Search Tree (bst).
+(defun bst-insert (obj bst <)
+  ; make the bst if its null
+  ; if you get to a leaf, add it to the correct place on the leaf
+  (if (null bst)
+    (make-node :elt obj)
+    ; handle the root
+    (let ((elt (node-elt bst)))
+      ; the obj is the root
+      (if (eql obj  elt)
+        bst ; return the hole branch rooted in obj
+        ; if its smaller than the root
+        (if (funcall < obj elt)
+          ; search left
+          (make-node
+            :elt    elt
+            :l      (bst-insert obj (node-l bst) <)
+            :r      (node-r bst) )
+          ; search right
+          (make-node
+            :elt    elt
+            :r      (bst-insert obj (node-r bst) <)
+            :l      (node-l bst) ) ) ) ) ) )
+
+
+(defun bst-insert (obj bst <)
+  ; Stop
+  (if (null bst)
+    (make-node :elt obj)
+    (let ((elt (node-elt bst)))
+      ; Found
+      (if (eql obj  elt)
+        ; Search
+        (if (funcall < obj elt)
+          ; left
+          (make-node
+            :elt    elt
+            :l      (bst-insert obj (node-l bst) <)
+            :r      (node-r bst) )
+          ; right
+          (make-node
+            :elt    elt
+            :r      (bst-insert obj (node-r bst) <)
+            :l      (node-l bst) ) ) ) ) ) )
+
+
+(defun bst-find (obj bst <)
+  ; the dead leaf, its not on the tree
+  ; its smaller or bigger than the last obj, but there is nothing to be found there
+  (if (null bst)
+    nil
+    ; handle
+    (let ((elt (node-elt bst)))
+      ; you found it!
+      (if (eql obj elt)
+        bst
+        ; keep searching
+        (if (funcall < obj elt)
+          ; left
+          (bst-find obj (node-l bst) <)
+          ; right
+          (bst-find obj (node-r bst) <) ) ) ) ) )
+
+(defun bst-min (bst)
+  ; 
+  (and bst
+       (or (bst-min (node-l bst)) bst) ) )
+
+(defun bst-max (bst)
+  (and bst
+       (or (bst-max (node-r bst)) bst) ) )
+
+(defun my-bst-min (bst)
+  ; (and bst
+ (or (bst-min (node-l bst)) bst) )
+
+
+
+
+(defun bst-find (obj bst <)
+  ; stop
+  (if (null bst)
+    nil
+    (let ((elt (node-elt bst)))
+      ; find
+      (if (eql obj elt)
+        bst
+        ; search
+        (if (funcall < obj elt)
+          (bst-find obj (node-l bst) <)
+          (bst-find obj (node-r bst) <) ) ) ) ) )
+
+
+(defun bst-remove (obj bst <)
+  ; stop
+  (if (null bst)
+    nil
+    (let ((elt (node-elt bst)))
+      ; found
+      (if (eql obj elt)
+        (percolate bst)
+        ; search
+        (if (funcall < obj elt)
+          ; left
+          (make-node
+            :elt elt
+            :l (bst-remove obj (node-l bst) <)
+            :r (node-r bst) )
+          ; right
+          (make-node
+            :elt elt
+            :r (bst-remove obj (node-r bst) <)
+            :l (node-l bst) ) ) ) ) ) )
+
+(defun percolate (bst)
+  ; remake right
+  (cond ((null (node-l bst))
+         ; remake neither
+         (if (null (node-r bst))
+           nil
+           (rperc bst) ) )
+        ; remake left
+        ((null (node-r bst)) (lperc bst))
+        ; remake any
+        (t (if (zerop (random 2))
+             (lperc bst)
+             (rperc bst) ) ) ) )
+
+; how much does you audience know?
+; how much familiarity must you expect?
+; at least as much as you will have a month from now, 
+; if you had not read your code in all that time
+
+(defun rperc (bst)
+  ; make the right node the new root
+  (make-node :elt (node-elt (node-r bst))
+             :l (node-l bst)
+             ; move up all those child nodes to the right
+             ; make right all to the right
+             :r (percolate (node-r bst)) ) )
+
+(defun lperc (bst)
+  ; make the left node the new root
+  (make-node :elt (node-elt (node-l bst))
+             ; move up all the left child nodes
+             :l (percolate (node-l bst))
+             :r (node-r bst) ) )
+
+; insert an obj in a balanced Binary Search Tree (bst).
+(defun bst-insert (obj bst <)
+  ; make the bst if its null
+  ; if you get to a leaf, add it to the correct place on the leaf
+  (if (null bst)
+    (make-node :elt obj)
+    ; handle the root
+    (let ((elt (node-elt bst)))
+      ; the obj is the root
+      (if (eql obj  elt)
+        bst ; return the hole branch rooted in obj
+        ; if its smaller than the root
+        (if (funcall < obj elt)
+          ; search left
+          (make-node
+            :elt    elt
+            :l      (bst-insert obj (node-l bst) <)
+            :r      (node-r bst) )
+          ; search right
+          (make-node
+            :elt    elt
+            :r      (bst-insert obj (node-r bst) <)
+            :l      (node-l bst) ) ) ) ) ) )
+
+(setf nums nil)
+
+(dolist (x '(5 8 4 2 1 9 6 7 3)) 
+  (setf nums (bst-insert x nums #'<)) )
+
+
+(defun bst-traverse (fn bst)
+  ; while you have not reached the leaf
+  (when bst
+    ; move left
+    (bst-traverse fn (node-l bst))
+    ; print the function
+    (funcall fn (node-elt bst))
+    ; traverse right
+    (bst-traverse fn (node-r bst)) ) )
+
+; the order of the functions is what tells you the order of traversal.
+; it first goes to the leftmost root, before printing the root one up.

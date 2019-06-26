@@ -85,6 +85,10 @@ https://en.wikipedia.org/wiki/T_(programming_language)
 olin shivers: history of T
 http://www.paulgraham.com/thist.html
 
+what does double word alignment mean?
+https://stackoverflow.com/questions/25080188/what-does-double-word-alignment-mean
+it means being aligned with the size of 2 words
+
 
 
 lisp: good news, bad news, and how to win big
@@ -452,3 +456,110 @@ how to start a project:
         to get a project template
     initialize git
     push it up to github
+
+
+a humble little node of a decentralized web
+https://www.neilvandyke.org/
+racket, PostmarketOS, Emacs, GNU/Linux, Smalltalk, PalmOS, Privoxy, bitcoin.
+
+
+the notational conventions I adopted, and why
+https://www.cs.utexas.edu/users/EWD/transcriptions/EWD13xx/EWD1300.html
+edsger W. Dijkstra
+that set notation
+
+why numbering should start at zero
+https://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html
+edsger w. dijkstra
+0 vs 1, 0 wins
+
+an inventory of dijkstra's books
+http://www.dijkstrascry.com/inventory
+
+dijkstra's rallying cry for generalization
+http://www.dijkstrascry.com/
+a fanboy's page on edsger w. dijkstra
+
+
+
+
+# management
+
+O, Engineers!
+https://www.wired.com/2000/12/soul/
+reprise of Soul of a new machine, 20 years later.
+corporate cutthroat, machiavelian, tom west, the eagle project
+evan ratliff
+
+souls, lost and found
+https://www.wired.com/2000/12/eagleteam/
+what happened to the developers of the eagle project?
+
+the soul of a new machine
+https://en.wikipedia.org/wiki/The_Soul_of_a_New_Machine
+tracy kidder and the eagle project
+mushroom management: keep them in the dark and feed them (bull)shit
+
+
+
+some common lisp loop macro examples
+https://www.youtube.com/watch?v=d0nERTFo-Sk
+baggers common lisp
+
+little bits of lisp - the basics of lisp's evaluation model
+https://www.youtube.com/watch?v=rmUTW5QWhhM
+baggers
+
+
+bootstrapping with T-diagrams - computerphile
+https://www.youtube.com/watch?v=PjeE8Bc96HY
+
+the quest to build the most effective teams
+https://www.youtube.com/watch?v=eMYOdy1OJuw
+inclusion diversity equality accountability
+
+hello world magazine
+https://helloworld.raspberrypi.org/
+by educators, for educators
+
+
+dealing with dynamic data - computerphile
+https://www.youtube.com/watch?v=vsTImsK6z4Q
+
+
+# symbol table and python
+
+python internals: symbol table
+https://eli.thegreenplace.net/2010/09/18/python-internals-symbol-tables-part-1
+basic tutorial on symbol tables and how CPython uses them.
+mandelbrot's set
+
+symtable -- access to the compiler's symbol table
+https://docs.python.org/2/library/symtable.html
+python documentation on a module to access the compiler's symbol table
+
+symbol table in python
+https://stackoverflow.com/questions/9085450/symbol-table-in-python
+some juicy links, to the symtable module, and the eli bendersky article above
+and some nice explanations
+
+how does a symbol table relate to a namespace?
+https://stackoverflow.com/questions/9085450/symbol-table-in-python
+"symbol tables is an implementation detail.
+namespaces are implemented using symbol tables,
+but symbol tables are used for more than namespaces.
+Like, functions have their own symbol tables for local variables,
+but variables do not exist in any namespace
+    (that is,
+    its impossible to access the local variables of a function
+    using a fully-qualified name)
+    "
+so, namespaces let you access the internal variables by name.
+symbol tables keep the record of the values?
+
+hashing and symbol tables in python
+https://medium.com/@tcij1013/hashing-and-symbol-tables-in-python-662a246a6e57
+hashing: turn data of arbitrary size into a fixed size
+perfect hashing function: each input string is guaranteed to be unique
+hash table: access by key instead of index number
+clowd technology

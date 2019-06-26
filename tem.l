@@ -71,3 +71,13 @@
       (range 1 (length Lst)) ) )
 
 
+(de reduce (Fn . @)
+   "Apply Fn on each @, 2 by 2, cumulatively. 
+   Return the result of the last application"
+   (let Last (next)
+      (while (args)
+         (setq Last
+            (Fn Last (next)) ) )
+      Last ) )
+      
+# what's better, a docString or doc in the property list?
