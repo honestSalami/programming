@@ -544,8 +544,7 @@ some juicy links, to the symtable module, and the eli bendersky article above
 and some nice explanations
 
 how does a symbol table relate to a namespace?
-https://stackoverflow.com/questions/9085450/symbol-table-in-python
-"symbol tables is an implementation detail.
+https://softwareengineering.stackexchange.com/questions/188274/how-does-a-symbol-table-relate-to-a-namespace"symbol tables is an implementation detail.
 namespaces are implemented using symbol tables,
 but symbol tables are used for more than namespaces.
 Like, functions have their own symbol tables for local variables,
@@ -563,3 +562,33 @@ hashing: turn data of arbitrary size into a fixed size
 perfect hashing function: each input string is guaranteed to be unique
 hash table: access by key instead of index number
 clowd technology
+
+programiz python globals
+https://www.programiz.com/python-programming/methods/built-in/globals
+a simbol table is a data structure where a compiler maintains the information
+of the program, like all the names and values
+globals()
+
+symbol table
+https://en.wikipedia.org/wiki/Symbol_table
+each identifier is associated with information relating to its declaration or
+appearance in the source
+they store information related to the symbol
+
+compiler design symbol table -- tutorials point
+https://www.tutorialspoint.com/compiler_design/compiler_design_symbol_table.htm
+the analysis and synthesis parts of the compiler
+store the names of all entities in a structured form in one place
+verify if a variable has been declared
+implement type checking
+    verifying assignments and expressions in the code are
+    semantically correct
+determine the scope of a name
+
+
+
+
+compiler design
+https://www.d.umn.edu/~rmaclin/cs5641/
+university of minnesota duluth
+symbol table
