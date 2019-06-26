@@ -592,3 +592,78 @@ compiler design
 https://www.d.umn.edu/~rmaclin/cs5641/
 university of minnesota duluth
 symbol table
+
+advanced programming
+http://pages.di.unipi.it/corradini/Didattica/AP-18/
+object oriented and functional programming
+university course
+
+andrea Corradini
+http://pages.di.unipi.it/corradini/
+people, algebraic and categorical semantics of programming languages, concurrency, graph grammars, term graph rewriting, term rewriting, petri nets, process mining, adaptive systems
+advanced programming
+logica per la programmazione, programming logic
+principles of programming languages
+
+a practical introduction to functional programming
+https://maryrosecook.com/blog/post/a-practical-introduction-to-functional-programming
+python2, transforming loops into functional maps and reduces.
+
+mary rose cook
+https://maryrosecook.com/
+javascript, git, lisp, functional programming, the fibonacci heap ruins my life
+a blog on coaching and programming
+
+learn you a haskell for great good!
+http://learnyouahaskell.com/
+miran lipovaca
+holy shit! the funkiest way to learn haskell
+http://learnyouahaskell.com/chapters
+the free ebook to learn haskell
+
+the java turorials
+https://docs.oracle.com/javase/tutorial/java/index.html
+
+trail: getting started
+https://docs.oracle.com/javase/tutorial/getStarted/index.html
+
+list as assembly language
+http://www.lispforum.com/viewtopic.php?f=20&t=622
+the history of car and cdr, and some nice links and leads
+
+register machine
+https://en.wikipedia.org/wiki/Register_machine
+an abstract machine that uses registers,
+multiple, unique addressed registers, holding a single positive integer
+there are 4 types:
+counter machine, pointer machine, random-access machine (ram), random-access stored-program machine (rasp, and a von newmann architecture)
+I love the bibliography section, it looks for patterns in the papers that lead
+to the invention of the register machine
+
+abstract machine
+https://en.wikipedia.org/wiki/Abstract_machine
+a theoretical computer model in automata theory
+they are used as thought experiments about computability or complexity of 
+algorithms. the most famous is the turing machine
+
+discrete and continuous time
+https://en.wikipedia.org/wiki/Discrete_time_and_continuous_time
+two ways to model variables that evolve over time
+
+
+abstract machines, interpreters and compilers
+https://mortoray.com/2012/06/18/abstract-machines-interpreters-and-compilers/
+languages model an abstract machine, in python its the "core semantics"
+they are not called machines, but behaviours and rules the language follows,
+they are machines, tho
+
+examples of abstract machines
+https://ieeexplore.ieee.org/document/5219345
+quasi-machines: single inputs producing multiple outputs, machines yielding no output upon insertion of certain inputs, the retention of the last n inputs only, erase left on tape, different input routing doing the same work, certain types of asynchronous switching circuits.
+quasi machines can model the first 5, and these are also called abstract machines
+
+musing motoray
+https://mortoray.com/
+I love the order of the website hierarchy, going up from a blog leads you to
+time categories of articles.
+python, abstract macchines, wordpress, python type annotations, interview questions, teaching, user story
