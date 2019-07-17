@@ -565,7 +565,7 @@ clowd technology
 
 programiz python globals
 https://www.programiz.com/python-programming/methods/built-in/globals
-a simbol table is a data structure where a compiler maintains the information
+a symbol table is a data structure where a compiler maintains the information
 of the program, like all the names and values
 globals()
 
@@ -585,6 +585,131 @@ implement type checking
     semantically correct
 determine the scope of a name
 
+ipython - "cannot import name 'create_prompt_application' from 'prompt_toolkit.shortcuts'"
+https://www.reddit.com/r/Python/comments/94b8rz/ipython_cannot_import_name_create_prompt/
+an error I got in emacs on startup.
+apparently, there is a conflict with upgrading prompt-toolkit. between version 1 and 2 there was a compatibility breaking change.
+I had to downgrade the version
+
+# python virtual environments
+
+how to install the Anaconda python distribution on ubuntu 18.04
+https://www.digitalocean.com/community/tutorials/how-to-install-the-anaconda-python-distribution-on-ubuntu-18-04
+download anaconda installer into /tmp,
+check the sha,
+say yes to everything,
+add ~/anaconda/bin to the PATH (automatic with bash, manual in fish)
+there is also a section on setting up an anaconda environment
+
+# python virtual machine/interpreter
+
+inside the python virtual machine
+https://leanpub.com/insidethepythonvirtualmachine/read
+the guts of executing a python program
+how to build symbol tables, generate code objects
+
+computer science course notes from professor richard pattis
+https://www.ics.uci.edu/~brgallar/index.html
+donald bren school of information and computer sciences
+python and java, and a helpful student
+file reading, regular expressions, operator overloading, iterator protocol, iterators via classes, generators: functions that act like iterators, recursion, functional programming, decorators, linked lists, trees, inheritance, analysis of algorithms, complexity of python operations, empirical analysis of algorithms, unit tests, the python virtual machine, introduction to java
+
+executing code in the python virtual machine
+https://www.ics.uci.edu/~brgallar/week9_3.html
+levels of abstraction, all of them XD
+compiling vs virtual machines and interpreters
+hot spot: a small amount of code that is executed a lot
+university of california irvine
+dis.py module (dissasembly)
+
+welcome to python vm internals turotial's documentation
+https://cs263-technology-tutorial.readthedocs.io/en/latest/
+overview of the python virtual machine, CPython, bytecodes
+links
+
+CoCo - A python virtual machine
+http://knuth.luther.edu/~leekent/CoCo/
+educational virtual machine based on python, in C++
+assembly language, and the entire thing on github
+
+rustpython: a python interpreter written in rust
+https://github.com/RustPython/RustPython
+
+byterun - a python interpreter written in python
+https://www.aosabook.org/en/500L/a-python-interpreter-written-in-python.html
+allison kaptur, so a girl woman wrote this! :D
+dropbox, recurse center, new york
+
+byterun, and making cells
+https://nedbatchelder.com/blog/201301/byterun_and_making_cells.html
+net batchelder, python in python
+
+Ned Batchelder
+https://nedbatchelder.com/blog/
+autism autistic son corporations and open source python interpreter
+
+tidelift
+https://tidelift.com/
+a managed open source subscription backend by creators and maintainers
+ned batchelder recommended it, by people from Red Hat, Gnome, and Mozilla
+pay open source projects
+
+500 lines or less | a python interpreter written in python
+https://www.reddit.com/r/ProgrammingLanguages/comments/6x0rqi/500_lines_or_less_a_python_interpreter_written_in/
+
+a python interpreter written in python
+http://aosabook.org/en/500L/a-python-interpreter-written-in-python.html
+
+the architecture of open source applications
+http://aosabook.org/en/index.html
+500 lines or less, the performance of open source applications, volumes 1 and 2
+free programming books, on python and LLVM and eclipse and Pypy and git lots more!
+
+allison kaptur - an occasional blog on programming
+http://akaptur.com/
+love your bugs
+
+an unexpected solution: cobbling together a python interpreter
+http://www.oilshell.org/blog/2017/04/09.html
+oil shell, OPy, CPython
+
+oil cross reference
+http://www.oilshell.org/cross-ref.html
+links for the oil shell blog
+tinypy
+
+oil a new unix shell
+http://www.oilshell.org/
+
+oil shell
+https://github.com/oilshell/oil
+
+fish shell
+https://fishshell.com
+finally, a command line shell for the 90
+
+design of CPython's compiler
+https://devguide.python.org/compiler/
+steps of compilation of source code into byte code:
+1) parse source code into parse tree
+2) transform parse tree into abstract syntax tree AST
+3) transform AST to Control Flow Graph
+4) Use the CFG to emit bytecode
+
+tinypy a minimalist implementation of python in 64K of code
+http://www.tinypy.org/
+parser and bytecode compiler written in tinypy
+bootstrapped
+luaesque virtual machine with garbage collection written in C
+
+twisted matrix labs
+https://twistedmatrix.com/trac/
+its a event-driven networking engine, under the MIT licence, for python 2 and 3
+web and stuff
+
+paul swartz
+https://github.com/paulswartz
+elixir programming language, parking tweets, boston
 
 
 
@@ -667,3 +792,1023 @@ https://mortoray.com/
 I love the order of the website hierarchy, going up from a blog leads you to
 time categories of articles.
 python, abstract macchines, wordpress, python type annotations, interview questions, teaching, user story
+
+# extempore programming language
+scheme and xtlang, and live coding
+
+Andrew Sorensen
+https://github.com/digego
+creator of extempore
+
+extempore
+https://extemporelang.github.io/
+music and live coding
+
+skeleton code
+http://picksc.idre.ucla.edu/software/skeleton-code/
+physics simulation with particle-in-cell code
+
+particle in cell and kinetic simulation software center
+https://picksc.idre.ucla.edu/
+at ucla
+physics simulation
+
+ben swift
+http://benswift.me/
+scholar, artist, hacker
+
+ben swift's github page
+https://github.com/benswift
+javascript extempore sublime spacemacs
+
+extempore pic demo
+https://vimeo.com/99891379
+running and modifying a pic in real time with extempore
+precompiling functions in C!! and running them in a dynamic environment!
+
+Ben swift's videos
+https://vimeo.com/benswift/videos
+extempore music programming language live coding live programming 
+
+supercomputing conference
+http://supercomputing.org/
+ben swift made a talk here about extempore and dynamic programming and physics simulation
+
+# spacemacs
+
+spacemacs
+http://spacemacs.org/
+the main page
+
+spacemacs documentation
+http://spacemacs.org/doc/DOCUMENTATION.html
+the philosophy and dot files and kinda everything
+
+migrating from vim
+http://spacemacs.org/doc/VIMUSERS.html
+modes (how editing works) vs states (the keybindings)
+layers == plugins
+run commands: SPC SPC for emacs commands, and : for ex commands
+
+spacemac conventions
+http://spacemacs.org/doc/CONVENTIONS.html
+the key bindings in spacemacs evil
+
+an introduction into spacemacs from a vim user
+https://thecode.pub/an-introduction-into-spacemacs-from-a-vim-user-f0d9c860911e
+a basic review of spacemacs, a basic tutorial
+
+helm
+https://github.com/emacs-helm/helm
+emacs incremental completion and selection narrowing framework
+
+prefix argument
+https://www.emacswiki.org/emacs/PrefixArgument#universal_argument
+what is this universal argument thing?
+
+completion
+https://www.emacswiki.org/emacs/Completion#completion
+input completion and text completion
+the difference is if its in the minibuffer or not
+
+emacs ppa
+https://launchpad.net/~kelleyk/+archive/ubuntu/emacs
+the ppa where I installed emacs
+
+
+# spacemacs and python
+
+rangarajan krishnamoorthy on programming and other topics
+https://www.rangakrish.com/
+nodejs mathematica and programming blog lisp
+
+multiple value return - common lisp vs tuples and destructuring
+http://lambda-the-ultimate.org/node/2833
+common lisp returns multiple values. Python returns tuples and destructures
+which one is better?
+its an extended discussion on how arity works in different languages
+
+whoever does not understand lisp, is doomed to reinvent it
+http://lambda-the-ultimate.org/node/2352
+an extended conversation 
+
+adnan aziz
+http://users.ece.utexas.edu/~adnan/
+buncha links about teaching and research
+voice authentication services, java, wikipedia
+and a book, elements of programming interviews
+
+
+rebrained!
+http://rebrained.com/
+a programming blog, focused on python and algorithms
+a monte carlo simulation in python, and some prime number generation with numpy
+
+generating prime numbers using numpy
+http://rebrained.com/?p=458
+element-wise operations from numpy
+
+usenet frequently asked questions
+http://www.faqs.org/faqs/
+
+lispworks: integrated cross platform development tool for common lisp
+http://www.lispworks.com/
+
+pico lisp: a case for minimalist interpreters?
+http://lambda-the-ultimate.org/node/2124
+some superficial comments on picolisp
+
+# python 
+
+automate your python environment with pyenv
+https://www.brianthicks.com/post/2015/04/15/automate-your-python-environment-with-pyenv/
+
+pipenv & virtual environments
+https://docs.python-guide.org/dev/virtualenvs/
+installing and running python packages
+the hitchhiker's guide to python
+
+nose2
+https://github.com/nose-devs/nose2
+unittesting with plugins
+
+nose
+https://pypi.org/project/nose/
+unittesting
+
+flake8
+https://simpleisbetterthancomplex.com/packages/2016/08/05/flake8.html
+making your code conformant with a coding style
+
+# emacs
+
+moving text to buffers, accumulation
+https://www.gnu.org/software/emacs/manual/html_node/emacs/Accumulating-Text.html#Accumulating-Text
+
+registers and bookmarks
+https://www.gnu.org/software/emacs/manual/html_node/emacs/Registers.html#Registers
+
+kill ring
+https://www.gnu.org/software/emacs/manual/html_node/emacs/Kill-Ring.html
+
+how to live with emacs dynamic scoping?
+https://stackoverflow.com/questions/3786033/how-to-live-with-emacs-lisp-dynamic-scoping
+free variables can be a problem, so use let as much as you can.
+
+endless parentheses ramblings on productivity and technical subjects
+https://endlessparentheses.com/
+emacs blog
+tests, slack, ruby, magit, paredit
+
+a quick guide to directory-local (or project-specific) variables
+https://endlessparentheses.com/a-quick-guide-to-directory-local-variables.html
+each directory can have a local variable, that has that value for every file inside that directory
+you can narrow the value by major mode
+
+project local variables in projectile with dirlocals
+http://joelmccracken.github.io/entries/project-local-variables-in-projectile-with-dirlocals/
+set emacs variables on a project-global level
+
+directory local variables
+https://www.gnu.org/software/emacs/manual/html_node/elisp/Directory-Local-Variables.html
+specify a local variable common to all file in that directory
+buffer local bindings for those variables for all buffers visiting any file in that directory
+2 ways: special file, or defininf a project class for that directory
+
+how to create a new file in emacs
+https://simpletutorials.com/c/2888/How+do+I+create+a+new+file+in+Spacemacs%3F
+SPC f f, then write the name of the new file
+refocus on helm: SPC w b
+
+list of emacs commands executed
+https://stackoverflow.com/questions/11069023/list-of-emacs-commands-executed
+view-lossage: SPC view-lossage, M-x view-lossage, C-h l
+edebug
+debug-on-entry: SPC debug-on-entry
+lossage: loss age, the time spent on bugs and other worthless things
+
+
+how can I create a new file with a simple way in spacemacs?
+https://stackoverflow.com/questions/35531759/how-can-i-create-a-new-file-with-a-simple-way-in-spacemacs
+one:
+  c key in neotree
+  SPC ' in shell layer, touch foo
+two:
+  :e path/to/file
+  :w (save) or :x (save and close)
+three:
+  SPC f f
+  type new filename
+  RET
+
+ivy user manual
+http://oremacs.com/swiper/
+ivy is an interactive interface for completion in emacs
+
+oremacs
+https://oremacs.com/
+emacs-lisp-mode, org-mode, c++-mode, latex-mode
+
+spacemacs keybindings that I need to learn
+https://gist.github.com/adham90/0d85d023f9d4f1dd28ef
+
+adham El-Deeb
+https://github.com/adham90?tab=repositories
+I sleep on my keyboard
+
+spacemacs cheat sheet
+https://gist.github.com/robphoenix/9e4db767ab5c912fb558
+saved on ~/git/programming
+
+spacemacs cheat sheet
+https://devhints.io/spacemacs
+
+devhints.io
+https://devhints.io/
+a ridiculously big collection of cheat sheets
+
+emacs commands list
+https://www.ast.cam.ac.uk/~vasily/idl/emacs_commands_list.html
+
+emacsredux
+https://emacsredux.com/
+spell checking comments, jekyll, emacs prelude
+
+emacs redux archive
+https://emacsredux.com/archive/
+
+emacs prelude
+https://github.com/bbatsov/prelude
+a simpler emacs. A different emacs package that changes lots of things...
+I think its like spacemacs XD
+
+spacemacs - emacs advanced kit focused on evil
+https://news.ycombinator.com/item?id=9394144
+lots of comments on personal experience, a couple of good links
+
+lispy
+https://github.com/abo-abo/lispy
+short and sweet lisp editing
+vi binds for lisp objects, and more!
+instead of modal editing, you have text context editing.
+you are in insert mode or normal mode depending on where the cursor is.
+I don't think I like that, but meh, lets try someday
+
+using emacs as a server
+https://www.gnu.org/software/emacs/manual/html_node/emacs/Emacs-Server.html
+run emacs as a daemon and you can start it up immediately and connect to it from anywhere
+
+basic emacs commands
+http://256stuff.com/gray/docs/emacs.html
+some commands for vanilla emacs
+
+256stuff
+https://256stuff.com/
+some stuff on emacs and computer programming and history
+
+emacs wiki
+https://www.emacswiki.org/
+
+how the emacs wiki works
+https://alexschroeder.ch/wiki/2012-03-24_How_Emacs_Wiki_Works
+mistaken beliefs:
+         that technology can substitute for social change
+         that moderation can be commanded
+         that quality control and volunteers go well together
+just like free software, if it doesn't scratch someone's itch, nobody is going to add it
+its a fundamental issue with our business model: there is no pay for boring stuff
+organization, quality, or love, none can be commanded
+the wiki is not the place to put quality stuff. That's what the Emacs documentation is for
+a single person is a bottleneck, it updates slowly
+they don't understad how cool it is to have a site with no login required
+balance quality with encouraging new authors and content. The more you have of one, the less you have of the other
+
+usig emacs
+https://philip.greenspun.com/teaching/manuals/usermanual/emacs.html
+ed hurley andrew grumet
+dired and shell and command window 
+
+emacs basics: call commands by name with m-x (with tips better completion using ido or helm)
+https://sachachua.com/blog/2014/03/emacs-basics-call-commands-name-m-x-tips-better-completion-using-ido-helm/
+
+emacs basics - calling commands by name M-x
+https://www.youtube.com/watch?time_continue=1&v=m7GlzatkvyY
+tetris and functions and sacha chua chinese emacs hacker and emacs news
+
+how to learn emacs:  a hand-drawn one page for beginners/ a visual tutorial
+https://sachachua.com/blog/2013/05/how-to-learn-emacs-a-hand-drawn-one-pager-for-beginners/
+window-buffer-stuff
+
+fun with emacs
+http://ergoemacs.org/emacs/emacs_fun.html
+text editors learning curve
+emacs tetris
+split windows
+      calendar, unicode, shell, hexl-mode, html-mode, dired, calculator
+calendar
+calculator
+  calc
+dired
+pretty colors
+  M-x list-colors-display
+shell
+eval-region
+irc
+
+a package on a league of its own: helm
+https://tuhdo.github.io/helm-intro.html
+incremental completion and selection narrowing for emacs
+
+introduction to ido mode
+https://www.masteringemacs.org/article/introduction-to-ido-mode
+fuzzy matching: configure-foo-bar cfb
+the underlying emacs movement conflicts with the evil unification.
+the commands defined by the foundation will be the most pervasive, they must either be
+right, or at least agnostic, or modular so that its easy to replace all of them for consistency all at once
+
+regular expressions in emacs
+https://www.emacswiki.org/emacs/RegularExpression
+
+the SRE regular expression notation
+https://scsh.net/docu/post/sre.html
+100% and 80% solutions, emacs for scheme processes, scheme unix api in scsh
+separation of matches and code, with the string representing all the literal matches, and
+functions and symbols representing the functions and matching syntax
+
+all articles of mastering emacs
+https://www.masteringemacs.org/all-articles
+curriculum
+
+evaluating elisp in emacs
+https://www.masteringemacs.org/article/evaluating-elisp-emacs
+form: something emacs can evaluate 
+SPC o x, ielm, M-:
+
+rooijakkers software archive
+http://www.rooijakkers.software/archives/
+clojure, paradigms in artificial intelligence programming paip peter norvig, vim and emacs
+
+learn emacs lisp in 15 minutes
+https://bzg.fr/en/learn-emacs-lisp-in-15-minutes.html/
+norvig teach yourself programming in 10 years
+elisp, tutorial
+
+practical emacs lisp
+http://ergoemacs.org/emacs/elisp.html
+
+emacs lisp basics
+http://ergoemacs.org/emacs/elisp_basics.html
+(defun fun () "docstring" (interactive) (let ((var val) (var val)) <do something>))
+
+
+freedom, computers, miscellaneous
+https://bzg.fr/en/
+bastien guerry, free software and free culture, emacs, elisp, org-mode
+conventional wisdom for developers and entrepeneurs, explained in pictures
+
+elisp: what's a function
+http://ergoemacs.org/emacs/elisp_function_types.html
+lambda expressions, primitive, special forms, macro, command, function
+commands: are all that can interact with the user
+  non-commands don't have the interactive clause
+macros: are not eval'd, so you can manipulate them before evaling
+types of symbols
+
+shell and comint secrets: history commands
+https://www.masteringemacs.org/article/shell-comint-secrets-history-commands
+shells and emacs
+interactive reverse search
+
+comint: writing your own command interpreter
+https://www.masteringemacs.org/article/comint-writing-command-interpreter
+spawn and communicate with a process, like a shell, build on it to create interactive processes
+
+# parenthesis, structural programming, parens
+
+lisp parentheses
+https://stackoverflow.com/questions/2207255/lisp-parentheses
+how lispers manage parentheses?
+the ide does half the job, and the rest is indentation instead of parens
+
+parinfer
+https://shaunlebron.github.io/parinfer/#editor-plugins
+https://shaunlebron.github.io/parinfer/
+indentation and parens auto-adjusting
+
+short and sweet lisp editing
+https://github.com/abo-abo/lispy
+text context bindings
+
+the animated guide to paredit
+http://danmidwood.com/content/2014/11/21/animated-paredit.html
+
+smartparens
+https://practicalli.github.io/spacemacs/structured-editing/
+a newer implementation of paredit
+
+smartparens cheetsheet
+https://practicalli.github.io/spacemacs/structured-editing/smartparens-cheet-sheet.html
+
+slurp and barf
+https://practicalli.github.io/spacemacs/structured-editing/lisp-state-slurp-barf.html
+cheatsheet
+smartparens
+
+sch-ilisp howto
+https://scsh.net/docu/post/ilisp.html
+a fist cut at how to get ilisp and scsh to play together
+
+# spacemacs workflow
+
+development workflow with spacemacs
+https://www.youtube.com/watch?v=k5X2Hb3tc2s
+john canaday
+
+emacs based workflow
+https://discourse.julialang.org/t/emacs-based-workflow/19400
+julia programming language
+
+basic unix/C workflow
+https://david.rothlis.net/emacs/basic_c.html
+how to learn emacs series
+
+my emacs workflow
+http://www.zenspider.com/ruby/2012/06/my-emacs-workflow.html
+part of the productivity pr0n series
+ruby
+
+an emacs workflow
+https://irreal.org/blog/?p=5968
+
+500 commits
+http://www.bundesbrandschatzamt.de/~baron/blog/20170216-500commits.html
+I am not a complete idiot. some parts are missing
+andreas gerler
+some advice on what to have in your toolbox, like
+snippets, comparison tools
+
+that complete idiot's emacs configuration
+https://github.com/baron42bba/.emacs.d/blob/master/bba.org#sqlformat
+andreas gerler
+
+my emacs development workflow
+https://medium.com/@xingwenju/my-emacs-development-workflow-41f4734b28b4
+linuxing3
+a super non professional programming interest
+
+reddit whats your job? what's your daily emacs workflow?
+https://www.reddit.com/r/emacs/comments/94gorn/whats_your_job_whats_your_daily_emacs_workflow/
+hy, firefox, cambodia, ESS for R programming in emacs
+
+doom emacs workflows
+https://noelwelsh.com/posts/2019-01-10-doom-emacs.html
+multiple cursors
+
+noel welsh
+https://noelwelsh.com/
+I like functional programming, machine learning, and computer art
+
+programmer workflow efficiency
+http://ergoemacs.org/misc/programer_workflow_efficiency.html
+xkcd spacebar heating, vim golf, evolution of workflows
+
+actually getting spacemacs to do stuff
+http://paul-gowder.com/emacs.html
+clojure and spacemacs keys, old reference
+
+emacs life
+http://emacslife.com/
+lots of external links to emacs resources
+
+literate devops
+http://www.howardism.org/Technical/Emacs/literate-devops.html
+how to manage a server
+
+literate devops with emacs
+https://www.youtube.com/watch?v=dljNabciEGg
+howardism
+
+howard abrams videos
+https://www.youtube.com/user/howardabrams/videos
+eshell, emacs, regular expressions, magit, scratch, rotifers in moss microscope
+
+introduction to literate programming 
+http://www.howardism.org/Technical/LP/introduction.html
+   
+babel: introduction
+https://orgmode.org/worg/org-contrib/babel/intro.html
+babel is about letting many different programming languages work together.
+they end up living inside natural language org-mode documents, and you can call tables, pass them to python, pass the output to an R process, and embed the result in a paragraph
+
+spacemacs debugging
+https://github.com/syl20bnr/spacemacs/wiki/Debugging
+how to make a great bug report
+
+emacs of the dead
+http://ergoemacs.org/emacs/emacs_game.html
+typing of the dead, but with emacs commands!
+
+parens of the dead
+http://www.parens-of-the-dead.com/
+screencast
+making a videogame with clojure and clojure script and emacs
+functional programming, immutable data structures
+
+practicalli
+https://practicalli.github.io/
+learn functional programming and clojure and spacemacs and youtube videos and screencasts
+clojure, clojurescript, spacemacs, webapps and APIs, study group, cider
+
+cider is the clojure(script) interactive development environment that rocks!
+https://cider.readthedocs.io/en/stable/
+extends emacs with interactive programming in clojure
+another lisp integrated development environment, compare SLIME
+
+SLIME the Superior Lisp Interaction Mode for Emacs
+https://github.com/slime/slime
+interactive programming in common lisp
+slime minor mode complementing the standard lisp mayor mode
+the mayor mode edits, the minor mode interacts with the running common lisp process
+
+
+clojure for the brave and true
+https://www.braveclojure.com/
+socrates quote
+
+region selection in spacemacs
+https://github.com/syl20bnr/spacemacs/blob/master/doc/DOCUMENTATION.org#region-selection
+SPC v   initiate expand-region mode
+    v   expand the region by 1 semantic unit
+    V   contract the region by 1 semantic unit
+    r   reset the region to initial selection
+    ESC leave the expand-region mode
+ii      inner indentation
+iI      above indentation
+iJ      below indentation
+
+expand region emacs extension to increase selected region by semantic units
+https://github.com/magnars/expand-region.el
+
+kill buffer
+https://www.gnu.org/software/emacs/manual/html_node/emacs/Kill-Buffer.html
+C-x k [buffer] <ret>
+SPC SPC kill-buffer
+
+
+# non emacs XD
+
+the one laptop per child learning environment sugar
+https://sugarizer.org/
+is now an app you can download anywhere!
+
+racket solve problems . make languages
+https://www.racket-lang.org/
+
+matthias felleisen
+https://felleisen.org/matthias/
+how to design programs, iconoclast, racket, pltredex, real of racket, thoughts
+
+free speech 
+https://felleisen.org/matthias/Thoughts/Free_Speech.html
+metthias Felleinsen
+women and standing up to your principles at the cost of your career and job and
+google internal memo
+a short story of courage
+
+a lawyer's programming blog
+http://paul-gowder.com/
+python, R, spacemacs, vi, magical iPython notebook, Clojure, java
+
+legal papers from paul gowder
+http://paul-gowder.com/#pubs
+law, layer, justice, athens, how to say what democracy is
+
+paultopia
+https://github.com/paultopia/
+Paul Gowder
+python and clojure
+
+introduction to quantitative and computational legal reasoning
+https://sociologicalgobbledygook.com/
+a basic statistics and probability course for lawyers
+sociological gobbledygook
+python, scientific evidence, empirical methods in law
+
+hack the law: coding basics for law students
+https://github.com/paultopia/code-data-lawstudents/blob/master/hack-law.ipynb
+python, justice, and a tutorial on programming for those who know nothing of programming
+awesome case study for teaching programming, education
+
+the main site, for teaching lawyers programming
+https://github.com/paultopia/code-data-lawstudents
+paul gowder
+
+probability for law students: the monty hall problem
+http://paul-gowder.com/montyhall/
+goats and teaching probability, education
+
+transformative legal technology and the rule of law
+https://utpjournals.press/doi/abs/10.3138/utlj.2017-0047
+cheaper lawyers vs transformative artificial legal cognition,
+thinking like lawyers where lawyers cannot go
+scientific paper of the university of toronto law journal
+
+project euler
+https://projecteuler.net/
+math problems solved with computers
+
+the cryptopals crypto challenges
+https://cryptopals.com/
+48 excercizes that demonstrate crypto and attacks
+welcome to the challenges, TLS, SSH, OTR
+
+rootlabs
+http://www.rootlabs.com/
+solving embedded security, kernel, and crypto challenges
+is your design or the design others made that you use secure? we can review!
+crypto, embedded systems, reverse-engineering, operating systems, device drivers, software tamper resistance
+
+bluekrypt cryptographic key length recommendation
+https://www.keylength.com/
+how long should the key be, given some algorithm?
+
+ROT13
+https://en.wikipedia.org/wiki/ROT13
+uggcf://ra.jvxvcrqvn.bet/jvxv/EBG13
+
+rdist
+https://rdist.root.org/
+the infrequently updated blog of the rootlabs guys
+
+the recurse center
+https://www.recurse.com/
+self-directed, community driven educational retreat for programmers in new york city
+inclusion of women, trans, and non-binary programmers
+
+
+# jamie zawinsky and dna lounge
+
+jamie zawinsky jwz tech articles
+https://www.jwz.org/doc/
+the art of the screensaver and a linux payphone
+
+jwzhacks
+https://www.jwz.org/hacks/
+youtube donwload, dali clock, lisp machines
+
+# repetitive strain injury
+repetitive strain injury
+http://ergoemacs.org/emacs/emacs_pinky.html
+some advice on avoiding repetitive strain injury
+selecting a computer keyboard that is ergonomic, laptop keyboards are the worst
+press the control with your palm
+
+repetitive strain injury
+https://en.wikipedia.org/wiki/Repetitive_strain_injury
+how the hell do I avoid it?
+
+linux: add keyboard shortcut to switch app
+http://xahlee.info/linux/linux_add_keyboard_shortcuts_to_switch_to_app.html
+use the function keys for the most used apps
+
+xemacs homepage for ben 
+http://xemacs.org/People/ben.wing/
+repetitive strain injury and xemacs
+
+3 creative techniques for writing modular code
+https://techbeacon.com/app-dev-testing/3-creative-techniques-writing-modular-code
+using variables to isolate logical expressions (like I did in racing game)
+using nested functions to encapsulate blocks of code
+preventing data access with block scoped variables
+
+python modules and packages -- and introduction
+https://realpython.com/python-modules-packages/
+simplicity, maintainability, reusability, scoping
+
+ludic numbers rosetta code python
+http://rosettacode.org/wiki/Ludic_numbers#Python
+
+approximate string matching
+https://en.wikipedia.org/wiki/Approximate_string_matching
+insertion, deletion, substitution
+
+what is fuzzy matching and how to use it correctly
+https://blog.couchbase.com/fuzzy-matching/
+levenshtein distance, damerau-levenshtein distance, fuzzy matching and relevance,
+how to minimize false positives during fuzzy lookups, denis rosa
+
+fuzzy lisp
+http://www.fuzzylisp.com/
+luis arguelles, a lisp toolbox for developing fuzzy-logic based models
+book
+
+java 'virtual machine' vs python 'interpreter' parlance?
+https://stackoverflow.com/questions/441824/java-virtual-machine-vs-python-interpreter-parlance
+vm: general abstracted machine
+interpreter: tailored for the language/grammar
+the tokens can be understood in isolation in a vm, but in an interpreter you can only undestand it in the context of the rest of the code
+apparently, interpreters are slower than compilers, because they do more, so they pre-interpret the data to do the execution time faster.
+incomplete reading
+
+
+leanpub. publish early, publish often
+https://leanpub.com/
+lots of free books on programming
+python internals, the legacy code programmer's toolbox
+
+don kirkby
+https://github.com/donkirkby
+live-py-plugin for emacs
+eclipse python word games java canada
+
+live coding python v2.16
+https://www.youtube.com/watch?v=Vdr2l3yNFH4
+turtle graphics, search, python, emacs, eclipse, unit testing
+
+Bret Victor - inventing on principle
+https://www.youtube.com/watch?v=3Tnr7r4cMok
+
+
+# garbage collection
+
+how does the Java garbage collector work with circular references
+https://stackoverflow.com/questions/1910194/how-does-java-garbage-collection-work-with-circular-references
+there are 2 types of garbage collectors:
+ reference counting
+  count the number of references to an object, incrementing and decrementing them
+  when they reach 0, they are tagged for collection
+ tracing
+  follow pointers recursively from a few selected root points, like: cpu registers, stack, global variables, root object, etc.
+  all objects that dont belong to this reference graph are unreachable, and tagged for collection.
+  depends on the concept of reachability
+there are 4 strategies for dealing with circular dependencies:
+ don't collect them
+ use 2 garbage collectors
+ detect cycles
+ don't count naively
+transitive closure
+
+two things to avoid for better memory management
+https://blogs.msdn.microsoft.com/ricom/2003/12/02/two-things-to-avoid-for-better-memory-usage/
+never call the garbage collector
+never have finalizers
+generational collection
+microsoft
+
+when to call GC.Collect()
+https://blogs.msdn.microsoft.com/ricom/2004/11/29/when-to-call-gc-collect/
+don't
+unless some non-recurring event happened that caused a lot of old objects to die
+
+what's so wrong about using GC.Collect()?
+https://stackoverflow.com/questions/118633/whats-so-wrong-about-using-gc-collect
+almost all the time, the collector will do its job better than you could tell it to.
+so now, the edge cases are so rare, you practically never need to collect
+
+jikes rvm home
+https://www.jikesrvm.org/
+a virtual machine for the java virtual machine, done for research and exploring garbage collecting
+
+memory management tool kit
+https://www.jikesrvm.org/UserGuide/MMTk/index.html
+garbage collection management for the Jikes vm
+
+reference counting
+https://en.wikipedia.org/wiki/Reference_counting
+one of the garbage collecting techniques
+immediate collection instead of waiting for a collection cycle like in tracing gc
+that is, more responsive
+
+garbage collection: how its done
+https://medium.com/@kasunpdh/garbage-collection-how-its-done-d48135c7fe77
+memory allocation and the java garbage collector
+stack and heap
+
+java platform performance: strategies and tactics
+https://techbus.safaribooksonline.com/book/programming/java/0201709694
+recommended for the appendix: the truth about garbage collecting
+
+sean bean's thoughts on business and software
+http://www.seanbehan.com/blog/
+ls and python and flask and ruby and dictionaries router react
+
+
+# resources
+
+linuxtopia
+https://www.linuxtopia.org/index.html
+an extensive online resource for learning to deploy enterprise level open source technology
+C, C++, Java, Web Development, system administrator, database administrator, hardware engineer, security specialist
+how-to, library, books
+
+# mouse and computer input
+
+footmouse
+https://www.amazon.com/RAZER-ORBWEAVER-CHROMA-Progammable-Adjustable/dp/B013P0HW7K/ref=sr_1_1?keywords=footmouse&qid=1563128234&s=gateway&sr=8-1
+control your computer with your feet!
+
+build a foot controlled mouse using a plastic spoon
+https://www.youtube.com/watch?v=wATlPAfa9xE
+ayudas para todos
+
+análisis sunu band, pulsera inteligente sonar para ciegos discapacidad visual Tecnologia asisitva
+https://www.youtube.com/watch?v=_0yikdz32cA
+sonar y vibracion de la muñeca
+
+análisis de linea braille Focus 14 y iPhone para ciegos discapacidad visual Tecnologia asistiva
+https://www.youtube.com/watch?v=G69n-1mgcTk
+manolo.net
+linea braille
+pantalla braille
+
+dot mini: a life-changing device for the visually impaired
+https://www.youtube.com/watch?v=ovMHMsjpsp4
+braille tablet corean company
+ai transcription to braille
+knowledge is power
+dot translation engine
+
+dot: first braille watch
+https://www.youtube.com/watch?v=2ax-NG-YVGw
+corean company
+manolo.net
+
+portal manolo.net promoviendo la igualdad tecnologica para las personas ciegas
+http://manolo.net/
+puerto rico
+
+footmouse
+https://www.youtube.com/watch?v=If-jkWIa1mg
+danish guy with neck problems
+
+homemade foot mouse, details
+https://www.dossierd.nl/ap_voetmuis_detail.html
+how to make the danish foot mouse
+
+footswitch
+https://www.dossierd.nl/ap_voetschakelaar.html
+make a foot switch
+
+mouse, track, and pen tablet
+https://www.dossierd.nl/ap_muis.html
+some curious mouse ideas
+
+tools for back and neck
+https://www.dossierd.nl/ap.html
+footmouse, footswitch, keyboard
+
+viacam head mouse
+https://eviacam.crea-si.com/index.php
+move the pointer as you move your head
+linux ubuntu head tracking mouse replacement
+
+animouse - control computer mouse using your head!
+http://www.animouse.org/
+india
+
+open source user interface
+https://www.appropedia.org/Open_Source_User_Interface
+michigan technological university
+
+appropedia: collaborative solutions in sustainability, appropriate technology, poverty reduction, permaculture
+https://www.appropedia.org/Welcome_to_Appropedia
+appropriate technology is:
+ small, sustainable, appropriate
+
+alt controller: making pc games more accessible
+http://altcontroller.net/
+remap computer inputs to actions in pc windows
+
+stinky board | gaming foot controller reviewed
+https://www.youtube.com/watch?v=Co9IubSWWNI
+like, 4 actions that can be mapped XD talked by a russian guy
+
+cybrary: build your cyber security or it carrer, for free
+https://www.cybrary.it/
+cisco networking academy recommendation
+
+python course
+https://www.python-course.eu/index.php
+
+essential programming books
+https://www.programming-books.io/
+Go, C++, java, javascript, python, MySQL, bash, Git, Ruby, swift
+
+ES6 Destructuring: the complete guide
+https://codeburst.io/es6-destructuring-the-complete-guide-7f842d08b98f?gi=2af97e4a01b5
+destructuring in javascript
+
+understanding the asterisk of python
+https://medium.com/understand-the-python/understanding-the-asterisk-of-python-8b9daaa4a558
+uses of the asterisk:
+ multiplication
+ repeatedly extending the list-type containers
+ variadic arguments (unpacking)
+ unpacking the containers
+
+python vs ES6 syntax comparison
+https://gist.github.com/revolunet/537a3448cff850231a74
+npm packaging seems to be the best
+
+proper cleanup of resources in python using with statements
+https://www.novixys.com/blog/proper-cleanup-resources-python-using-statement/
+resource acquisition and cleanup
+resource: anything that can only be used by one program at a time
+
+resource cleanup compared: python, Go, and C++
+https://codewithoutrules.com/2016/03/10/compare-contrast/
+compare a single task across multiple technologies
+languages without garbage collection can potentially rely on deterministic object destruction to cleanup resources
+languages with exceptions can support cleanup with exception handlers plus success case cleanup, or with special syntax like python or java
+Go has scheduled clean up functions, and those can be a library feature in any programming lanugage
+
+python 3 patterns, recipes and idioms: initialization and cleanup
+https://python-3-patterns-idioms-test.readthedocs.io/en/latest/InitializationAndCleanup.html
+
+resource management with python
+https://greek0.net/blog/2016/05/28/resource_management_with_python/
+all resources need some reliable cleanup
+the with statement
+
+how do I correctly clean up a python object?
+https://stackoverflow.com/questions/865115/how-do-i-correctly-clean-up-a-python-object
+the with statement, you can forget to add the close() in the finally
+
+the sentinel object pattern
+https://python-patterns.guide/python/sentinel-object/
+a sentinel is a return value that we agreed means that nothing was found
+two value return pattern that pervades Go (and common lisp)
+distinguishing between retun values from an exception
+
+python design patterns 1
+https://www.youtube.com/watch?v=Er5K_nR5lDQ&t=1045s
+brandon rhodes
+
+python patterns
+https://python-patterns.guide/
+python specific patterns, creational patterns, structural patterns, behavioural patterns
+
+pro-tip - sentinel values in python
+https://www.revsys.com/tidbits/sentinel-values-python/
+distinguish between an argument that was not provided, and an argument provided with the value None
+
+revsys
+https://www.revsys.com/
+django, postgreSQL, infrastructure operations and deployment, app development, open source software, system admininstration
+
+sentinels 1.0.0
+https://pypi.org/project/sentinels/
+sentinels are objects with special meanings
+implements a sentinel class
+
+sentinel objects and their applications?
+https://stackoverflow.com/questions/39313943/sentinel-object-and-its-applications
+object() as a sentinel object
+
+unique sentinel values, identity checks, and when to use object() instead of None
+https://treyhunner.com/2019/03/unique-and-sentinel-values-in-python/
+an object that can be uniquely identified. Sometimes, None is the one to go, but others its too ambiguous, and object() works better
+
+sentinel loops
+https://www.pythonstudio.us/programming-4/sentinel-loops.html
+a sentinel loop continues to process data until reaching a special value that signals the end.
+the only restriction is that the sentinel be distinguishable from the actual data.
+
+python tips: iterate with a sentinel value
+https://amir.rachum.com/blog/2013/11/10/python-tips-iterate-with-a-sentinel-value/
+iter(list, sentinel)
+for i in iter(file.read, ''):
+
+sentinel value
+https://en.wikipedia.org/wiki/Sentinel_value
+a sentinel value is a special value in the context of an algorithm which uses its presence as a condition to terminate.
+a special value that tells an algorithm to stop
+in band data: data part of the stream
+in band signaling: sending control signals in the same band channel as the data
+out-of-band data: data sent in a different channel form the data
+out of band signaling: control signals sent in a channel different from the main data
+the semipredicate problem: when the signal of failure is also a valid return value. You cannot tell if the function failed, because valid and sentinel values collide in the same value
+elephant in cairo
+
+programming tutorials and lecture notes
+https://chortle.ccsu.edu/
+java, mips assembly language, vector math for computer graphics, ansi C
+
+sentinel loops
+https://www.lehigh.edu/~ineng2/clipper/notes/sentinelloop.htm
+
+some programming tutorials
+https://www.lehigh.edu/~ineng2/clipper/notes/
+matlab, physics, newtons, sentinel loop, sorting
+
+# property methods python
+
+machine learning plus python @property explained -- how to use it and when? [full examples]
+https://www.machinelearningplus.com/python/python-property/
+when you want a derived attribute to update automatically on changing the parent attributes,
+which is easiest to do with a method that looks like an attribute.
+the @setter lets you change that attribute-disguised-method
+the @deleter tells python what to do when you call 'del' on that object.
+
+pythonic code: the property decorator 
+https://www.mattlayman.com/blog/2017/pythonic-code-the-property-decorator/
